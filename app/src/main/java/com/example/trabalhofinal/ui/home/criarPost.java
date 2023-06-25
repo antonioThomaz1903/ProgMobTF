@@ -78,7 +78,6 @@ public class criarPost extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        Button pause = binding.pause;
     }
 
 }
