@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.home.HomeFragment">
 
+
     <RelativeLayout
         android:id="@+id/topLayout"
         android:layout_width="match_parent"

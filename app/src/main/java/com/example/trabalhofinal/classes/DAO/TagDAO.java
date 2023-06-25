@@ -7,19 +7,20 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.trabalhofinal.classes.entities.Tag;
-import com.example.trabalhofinal.classes.entities.Usuario;
+
+import java.util.ArrayList;
 
 @Dao
 public interface TagDAO {
 
-    @Query("SELECT * FROM Tag WHERE id = :id LIMIT 1")
-    Tag getTag(int id);
+    @Query("SELECT * FROM Tag WHERE nome = :nome LIMIT 1")
+    Tag getTag(String nome);
 
     @Update
     void update(Tag tag);
 
     @Insert
-    void insertAll(Tag... tag);
+    void insertAll(ArrayList<Tag> tag);
 
     @Delete
     void delete(Tag tag);

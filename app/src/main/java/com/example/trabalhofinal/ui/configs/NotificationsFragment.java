@@ -22,9 +22,6 @@ public class NotificationsFragment extends Fragment {
 
     private TextView nome;
 
-    private Usuario user = new Usuario("Fulanin", "0000000","67-11111-2222","fulanin@gmail.com");
-
-
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -32,20 +29,12 @@ public class NotificationsFragment extends Fragment {
                 new ViewModelProvider(this).get(NotificationsViewModel.class);
 
         db = LocalDatabase.getDatabase(getActivity().getApplicationContext());
-        try{
-            //db.usuarioModel().insertAll(user);
-        }
-        catch(Exception e){
-            System.out.println("\nJá tá la");
-        }
 
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.descricao;
         //notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        //textView.setText(db.usuarioModel().getUsuario("Fulanin").toString());
-
         return root;
     }
 
