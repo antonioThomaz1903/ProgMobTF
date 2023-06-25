@@ -1,4 +1,4 @@
-package com.example.trabalhofinal.ui.home;
+package com.example.trabalhofinal.ui.chat;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

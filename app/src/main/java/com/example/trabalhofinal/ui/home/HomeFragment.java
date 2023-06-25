@@ -1,4 +1,4 @@
-package com.example.trabalhofinal.ui.chat;
+package com.example.trabalhofinal.ui.home;
 
 import static android.os.Build.VERSION_CODES.R;
 
@@ -18,11 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.trabalhofinal.classes.database.LocalDatabase;
 import com.example.trabalhofinal.databinding.FragmentHomeBinding;
 
-import java.awt.font.NumericShaper;
-
-<<<<<<< HEAD:app/src/main/java/com/example/trabalhofinal/ui/home/HomeFragment.java
-public class HomeFragment extends AppCompatActivity {
-=======
+public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
 
     private LocalDatabase db;
@@ -32,40 +28,29 @@ public class HomeFragment extends AppCompatActivity {
         HomeViewModel homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
-        db = LocalDatabase.getDatabase(getActivity().getApplicationContext());
+        //db = LocalDatabase.getDatabase(getActivity().getApplicationContext());
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
-    }
->>>>>>> 538144cc8df459d738d26b49968deffd7c6d0b8e:app/src/main/java/com/example/trabalhofinal/ui/chat/HomeFragment.java
-
-
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_home);
-
-        ImageButton profileImageButton = findViewById(R.id.profileImageView);
+        ImageButton profileImageButton = binding.profileImageView;
         profileImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir as configurações do usuário
-                Toast.makeText(HomeFragment.this, "Configurações do usuário", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getApplicationContext(), "Configurações do usuário", Toast.LENGTH_SHORT).show();
             }
         });
 
-        ImageButton addButton = findViewById(R.id.addButton);
+        ImageButton addButton = binding.addButton;
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Lógica para adicionar um novo item
-                Toast.makeText(HomeFragment.this, "Adicionar", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getApplicationContext(), "Adicionar", Toast.LENGTH_SHORT).show();
             }
         });
+
+        return root;
     }
+
 }
