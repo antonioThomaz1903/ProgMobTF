@@ -4,19 +4,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.notifications.NotificationsFragment">
+    tools:context=".ui.configs.NotificationsFragment">
 
     <TextView
-        android:id="@+id/text_notifications"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:id="@+id/nome"
+        android:layout_width="273dp"
+        android:layout_height="81dp"
+        android:text="Olá Fulano!"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/descricao"
+        android:layout_width="356dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
+        android:text="Pequeno resumo sobre a conta do usuário, como quantos posts já realizou, quantas adoções, e etc."
         android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nome" />
+
+    <Button
+        android:id="@+id/informacoes"
+        style="@android:style/Widget.Material.Light.Button.Inset"
+        android:layout_width="377dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/amarelin"
+        android:text="Informações Pessoais"
+        android:textAlignment="textStart"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/informacoes2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/informacoes2"
+        android:layout_width="377dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/azul"
+        android:hapticFeedbackEnabled="false"
+        android:text="Notificações"
+        android:textAlignment="textEnd"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/informacoes3"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/informacoes3"
+        android:layout_width="377dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/amarelin"
+        android:text="Personalização"
+        android:textAlignment="textStart"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/informacoes4"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/informacoes4"
+        android:layout_width="377dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/azul"
+        android:text="Segurança"
+        android:textAlignment="textEnd"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:theme="@android:style/Theme.NoTitleBar"
+        app:layout_constraintBottom_toTopOf="@+id/informacoes5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/informacoes5"
+        android:layout_width="377dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="75dp"
+        android:background="@color/amarelin"
+        android:text="Histórico"
+        android:textAlignment="textStart"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:theme="@android:style/Theme.NoTitleBar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="86dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="25dp"
+        android:src="@drawable/baseline_account_circle_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
