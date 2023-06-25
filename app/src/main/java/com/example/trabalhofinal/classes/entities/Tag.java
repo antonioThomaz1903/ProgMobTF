@@ -17,13 +17,11 @@ public class Tag {
 
     public Tag(){}
 
-    public Tag(int id, String nome, int requisito) {
-        this.id = id;
+    public Tag(String nome, int requisito) {
         this.nome = nome;
         this.requisito = requisito;
     }
-    public Tag(int id, String nome) {
-        this.id = id;
+    public Tag(String nome) {
         this.nome = nome;
     }
 

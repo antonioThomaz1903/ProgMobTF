@@ -14,7 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.trabalhofinal.R;
 import com.example.trabalhofinal.classes.database.LocalDatabase;
 import com.example.trabalhofinal.databinding.FragmentHomeBinding;
 
@@ -22,6 +24,8 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
 
     private LocalDatabase db;
+
+    private boolean status = false;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -47,10 +51,15 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 // Lógica para adicionar um novo item
                 Toast.makeText(getActivity().getApplicationContext(), "Adicionar", Toast.LENGTH_SHORT).show();
+                criarPost();
             }
         });
 
         return root;
+    }
+
+    public void criarPost(){
+        NavHostFragment.findNavController(HomeFragment.this).navigate(com.example.trabalhofinal.R.id.action_navigation_home_to_criarPost);
     }
 
 }
