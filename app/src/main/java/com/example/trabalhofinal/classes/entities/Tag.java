@@ -33,7 +33,7 @@ public class Tag {
         this.id = id;
     }
 
-    public static String getNome() {
+    public String getNome() {
         return nome;
     }
 
