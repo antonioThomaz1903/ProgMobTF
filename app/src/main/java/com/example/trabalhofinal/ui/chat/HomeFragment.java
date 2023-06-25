@@ -1,4 +1,4 @@
-package com.example.trabalhofinal.ui.home;
+package com.example.trabalhofinal.ui.chat;
 
 import static android.os.Build.VERSION_CODES.R;
 
@@ -15,11 +15,35 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.trabalhofinal.classes.database.LocalDatabase;
 import com.example.trabalhofinal.databinding.FragmentHomeBinding;
 
 import java.awt.font.NumericShaper;
 
+<<<<<<< HEAD:app/src/main/java/com/example/trabalhofinal/ui/home/HomeFragment.java
 public class HomeFragment extends AppCompatActivity {
+=======
+    private FragmentHomeBinding binding;
+
+    private LocalDatabase db;
+
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        HomeViewModel homeViewModel =
+                new ViewModelProvider(this).get(HomeViewModel.class);
+
+        db = LocalDatabase.getDatabase(getActivity().getApplicationContext());
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
+        final TextView textView = binding.textHome;
+        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        return root;
+    }
+>>>>>>> 538144cc8df459d738d26b49968deffd7c6d0b8e:app/src/main/java/com/example/trabalhofinal/ui/chat/HomeFragment.java
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
