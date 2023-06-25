@@ -6,23 +6,25 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.trabalhofinal.classes.database.LocalDatabase;
+import com.example.trabalhofinal.classes.entities.Tag;
 import com.example.trabalhofinal.databinding.FragmentHomeBinding;
 
 import java.awt.font.NumericShaper;
 
-<<<<<<< HEAD:app/src/main/java/com/example/trabalhofinal/ui/home/HomeFragment.java
-public class HomeFragment extends AppCompatActivity {
-=======
+
+public class HomeFragment extends Fragment {
+
     private FragmentHomeBinding binding;
 
     private LocalDatabase db;
@@ -40,32 +42,54 @@ public class HomeFragment extends AppCompatActivity {
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
->>>>>>> 538144cc8df459d738d26b49968deffd7c6d0b8e:app/src/main/java/com/example/trabalhofinal/ui/chat/HomeFragment.java
 
+    private EditText searchEditText;
+    private ImageButton profileImageButton;
+    private ImageButton addButton;
 
+    public static HomeFragment newInstance() {
+        return new HomeFragment();
+    }
 
-
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_home);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
 
-        ImageButton profileImageButton = findViewById(R.id.profileImageView);
+        searchEditText = view.findViewById(R.id.searchEditText);
+        searchEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String tag = searchEditText.getText().toString();
+                Tag postTag = new Tag();
+                // Lógica para pesquisar um post pela tag
+                searchPostByTag(postTag);
+            }
+        });
+
+        profileImageButton = view.findViewById(R.id.profileImageView);
         profileImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir as configurações do usuário
-                Toast.makeText(HomeFragment.this, "Configurações do usuário", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Configurações do usuário", Toast.LENGTH_SHORT).show();
             }
         });
 
-        ImageButton addButton = findViewById(R.id.addButton);
+        addButton = view.findViewById(R.id.addButton);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Lógica para adicionar um novo item
-                Toast.makeText(HomeFragment.this, "Adicionar", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Adicionar", Toast.LENGTH_SHORT).show();
             }
         });
+
+        return view;
+    }
+
+    private void searchPostByTag(Tag tag) {
+        // Lógica para pesquisar um post pela tag recebida como parâmetro
+        Toast.makeText(getActivity(), "Pesquisar post por tag: " + Tag.getNome(), Toast.LENGTH_SHORT).show();
     }
 }
