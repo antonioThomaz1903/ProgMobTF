@@ -6,11 +6,24 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.example.trabalhofinal.classes.DAO.ChatDAO;
+import com.example.trabalhofinal.classes.DAO.MensagemDAO;
 import com.example.trabalhofinal.classes.DAO.NotificacaoDAO;
 import com.example.trabalhofinal.classes.DAO.PostDAO;
 import com.example.trabalhofinal.classes.DAO.TagDAO;
 import com.example.trabalhofinal.classes.DAO.UsuarioDAO;
+<<<<<<< HEAD
 
+=======
+import com.example.trabalhofinal.classes.entities.Chat;
+import com.example.trabalhofinal.classes.entities.Mensagem;
+import com.example.trabalhofinal.classes.entities.Notificacao;
+import com.example.trabalhofinal.classes.entities.Post;
+import com.example.trabalhofinal.classes.entities.Tag;
+import com.example.trabalhofinal.classes.entities.Usuario;
+
+@Database(entities = {Usuario.class, Post.class, Notificacao.class,Tag.class, Mensagem.class, Chat.class}, version = 3)
+>>>>>>> d96a0afbebac9193aea918203e1c1ae852f962bc
 public abstract class LocalDatabase extends RoomDatabase{
 
     private static LocalDatabase INSTANCE;
@@ -26,4 +39,6 @@ public abstract class LocalDatabase extends RoomDatabase{
     public abstract PostDAO postModel();
     public abstract NotificacaoDAO notificacaoModel();
     public abstract TagDAO tagModel();
+    public abstract ChatDAO chatModel();
+    public abstract MensagemDAO mensagemModel();
 }

@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">TrabalhoFinal</string>
-    <string name="title_home">Chat</string>
-    <string name="title_dashboard">Home</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Chat</string>
     <string name="title_notifications">Configurações</string>
+
+    <string name="chats_abertos">Chats abertos: </string>
+    <string name="no_chat">Você não tem nenhum chat aberto</string>
 </resources>

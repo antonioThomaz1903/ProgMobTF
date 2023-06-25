@@ -33,7 +33,7 @@ public class NotificationsFragment extends Fragment {
 
         db = LocalDatabase.getDatabase(getActivity().getApplicationContext());
         try{
-            db.usuarioModel().insertAll(user);
+            //db.usuarioModel().insertAll(user);
         }
         catch(Exception e){
             System.out.println("\nJá tá la");
@@ -44,7 +44,7 @@ public class NotificationsFragment extends Fragment {
 
         final TextView textView = binding.descricao;
         //notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        textView.setText(db.usuarioModel().getUsuario("Fulanin").toString());
+        //textView.setText(db.usuarioModel().getUsuario("Fulanin").toString());
 
         return root;
     }

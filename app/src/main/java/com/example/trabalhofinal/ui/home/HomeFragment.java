@@ -1,4 +1,4 @@
-package com.example.trabalhofinal.ui.chat;
+package com.example.trabalhofinal.ui.home;
 
 import static android.os.Build.VERSION_CODES.R;
 
@@ -20,11 +20,15 @@ import com.example.trabalhofinal.classes.database.LocalDatabase;
 import com.example.trabalhofinal.classes.entities.Tag;
 import com.example.trabalhofinal.databinding.FragmentHomeBinding;
 
+<<<<<<< HEAD:app/src/main/java/com/example/trabalhofinal/ui/chat/HomeFragment.java
 import java.awt.font.NumericShaper;
 
 
 public class HomeFragment extends Fragment {
 
+=======
+public class HomeFragment extends Fragment {
+>>>>>>> d96a0afbebac9193aea918203e1c1ae852f962bc:app/src/main/java/com/example/trabalhofinal/ui/home/HomeFragment.java
     private FragmentHomeBinding binding;
 
     private LocalDatabase db;
@@ -34,10 +38,11 @@ public class HomeFragment extends Fragment {
         HomeViewModel homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
-        db = LocalDatabase.getDatabase(getActivity().getApplicationContext());
+        //db = LocalDatabase.getDatabase(getActivity().getApplicationContext());
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+<<<<<<< HEAD:app/src/main/java/com/example/trabalhofinal/ui/chat/HomeFragment.java
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
@@ -68,19 +73,31 @@ public class HomeFragment extends Fragment {
         });
 
         profileImageButton = view.findViewById(R.id.profileImageView);
+=======
+        ImageButton profileImageButton = binding.profileImageView;
+>>>>>>> d96a0afbebac9193aea918203e1c1ae852f962bc:app/src/main/java/com/example/trabalhofinal/ui/home/HomeFragment.java
         profileImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Lógica para abrir as configurações do usuário
+<<<<<<< HEAD:app/src/main/java/com/example/trabalhofinal/ui/chat/HomeFragment.java
                 Toast.makeText(getActivity(), "Configurações do usuário", Toast.LENGTH_SHORT).show();
             }
         });
 
         addButton = view.findViewById(R.id.addButton);
+=======
+                Toast.makeText(getActivity().getApplicationContext(), "Configurações do usuário", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ImageButton addButton = binding.addButton;
+>>>>>>> d96a0afbebac9193aea918203e1c1ae852f962bc:app/src/main/java/com/example/trabalhofinal/ui/home/HomeFragment.java
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Lógica para adicionar um novo item
+<<<<<<< HEAD:app/src/main/java/com/example/trabalhofinal/ui/chat/HomeFragment.java
                 Toast.makeText(getActivity(), "Adicionar", Toast.LENGTH_SHORT).show();
             }
         });
@@ -91,5 +108,13 @@ public class HomeFragment extends Fragment {
     private void searchPostByTag(Tag tag) {
         // Lógica para pesquisar um post pela tag recebida como parâmetro
         Toast.makeText(getActivity(), "Pesquisar post por tag: " + Tag.getNome(), Toast.LENGTH_SHORT).show();
+=======
+                Toast.makeText(getActivity().getApplicationContext(), "Adicionar", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return root;
+>>>>>>> d96a0afbebac9193aea918203e1c1ae852f962bc:app/src/main/java/com/example/trabalhofinal/ui/home/HomeFragment.java
     }
+
 }
