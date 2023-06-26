@@ -14,6 +14,7 @@ public interface UsuarioDAO {
     @Query("SELECT * FROM Usuario WHERE nome = :nome LIMIT 1")
     Usuario getUsuario(String nome);
 
+
     @Update
     void update(Usuario usuario);
 

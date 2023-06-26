@@ -11,8 +11,8 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_navigation_home_to_criarPost"
-            app:destination="@id/criarPost" />
+            android:id="@+id/action_navigation_home_to_addPost"
+            app:destination="@id/addPost" />
     </fragment>
 
     <fragment
@@ -42,12 +42,12 @@
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
-        android:id="@+id/criarPost"
-        android:name="com.example.trabalhofinal.ui.home.criarPost"
-        android:label="fragment_criar_post"
-        tools:layout="@layout/fragment_criar_post" >
+        android:id="@+id/addPost"
+        android:name="com.example.trabalhofinal.ui.home.AddPost"
+        android:label="fragment_add_post"
+        tools:layout="@layout/fragment_add_post" >
         <action
-            android:id="@+id/action_criarPost_to_navigation_home"
+            android:id="@+id/action_addPost_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
 </navigation>

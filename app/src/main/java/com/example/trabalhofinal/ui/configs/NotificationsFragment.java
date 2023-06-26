@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.trabalhofinal.MainActivity;
 import com.example.trabalhofinal.classes.database.LocalDatabase;
 import com.example.trabalhofinal.classes.entities.Usuario;
 import com.example.trabalhofinal.databinding.FragmentNotificationsBinding;
@@ -33,7 +34,7 @@ public class NotificationsFragment extends Fragment {
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.descricao;
+        binding.nome.setText(MainActivity.user.getNome().toString());
         //notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }

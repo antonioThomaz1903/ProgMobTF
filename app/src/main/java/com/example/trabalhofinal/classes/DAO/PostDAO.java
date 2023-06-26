@@ -18,8 +18,11 @@ public interface PostDAO {
     @Query("SELECT * FROM Post WHERE id = :id LIMIT 1")
     Post getPost(int id);
 
-    @Query("SELECT * FROM Post WHERE postador =:nome")
+    @Query("SELECT * FROM Post WHERE titulo LIKE '%' || :nome || '%'")
     List<Post> pesquisaPost(String nome);
+
+    @Query("SELECT * FROM Post")
+    List<Post> getAll();
 
     @Update
     void update(Post post);

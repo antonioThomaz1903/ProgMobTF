@@ -40,39 +40,10 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <LinearLayout
+        <ListView
+            android:id="@+id/listaPost"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/card_background"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <ImageView
-                android:id="@+id/cardImageView"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/baseline_pets_24" />
-
-            <TextView
-                android:id="@+id/cardTitleTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Título do Card"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/cardDescriptionTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Descrição do Card"
-                android:textSize="14sp" />
-
-        </LinearLayout>
-
+            android:layout_height="match_parent" />
     </LinearLayout>
 
     <ImageButton

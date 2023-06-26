@@ -3,7 +3,6 @@ package com.example.trabalhofinal;
 import android.os.Bundle;
 
 import com.example.trabalhofinal.classes.database.LocalDatabase;
-import com.example.trabalhofinal.classes.entities.Tag;
 import com.example.trabalhofinal.classes.entities.Usuario;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -16,13 +15,10 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.trabalhofinal.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    ArrayList<Tag> tags = new ArrayList<Tag>();
-
     public static Usuario user = new Usuario("Fulanonono","00000000","67 999999999","gmail@gmail.com");
 
     private LocalDatabase db;
@@ -45,31 +41,12 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
 
         db = LocalDatabase.getDatabase(getApplicationContext());
-
         try {
-            tags.add(new Tag("CACHORRO"));
-            tags.add(new Tag("GATO"));
-            tags.add(new Tag("LAGARTO"));
-            tags.add(new Tag("VIRA LATA"));
+            db.usuarioModel().insertAll(user);
+        }catch (Exception e){
 
+        }
 
-            db.tagModel().insertAll(tags);
-
-            tags.clear();
-
-            tags.add(new Tag("CHAU CHAU", db.tagModel().getTag("CACHORRO").getId()));
-            tags.add(new Tag("PINSCHER", db.tagModel().getTag("CACHORRO").getId()));
-            tags.add(new Tag("GOLDEN RETRIEVER", db.tagModel().getTag("CACHORRO").getId()));
-            tags.add(new Tag("HUSKY SIBERIANO", db.tagModel().getTag("CACHORRO").getId()));
-
-            tags.add(new Tag("SIAMES", db.tagModel().getTag("GATO").getId()));
-            tags.add(new Tag("PERSA", db.tagModel().getTag("GATO").getId()));
-            tags.add(new Tag("SPHINX", db.tagModel().getTag("GATO").getId()));
-
-            db.tagModel().insertAll(tags);
-
-            tags.clear();
-        }catch(Exception ignored){}
     }
 
 }

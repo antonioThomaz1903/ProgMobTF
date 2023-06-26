@@ -16,21 +16,17 @@ public class Post {
     private String postador;
     private String titulo;
     private String descricao;
-    private int imagem;
-
 
     public Post(){}
 
-    public Post(int id, String postador, String titulo, String descricao, int imagem) {
+    public Post(int id, String postador, String titulo, String descrica) {
         this.id = id;
         this.postador = postador;
         this.titulo = titulo;
         this.descricao = descricao;
-        this.imagem = imagem;
     }
 
-    public Post(int id, String postador, String titulo, String descricao) {
-        this.id = id;
+    public Post( String postador, String titulo, String descricao) {
         this.postador = postador;
         this.titulo = titulo;
         this.descricao = descricao;
@@ -68,13 +64,6 @@ public class Post {
         this.descricao = descricao;
     }
 
-    public int getImagem() {
-        return imagem;
-    }
-
-    public void setImagem(int imagem) {
-        this.imagem = imagem;
-    }
 
     @Override
     public String toString() {
@@ -83,7 +72,6 @@ public class Post {
                 ", postador='" + postador + '\'' +
                 ", titulo='" + titulo + '\'' +
                 ", descricao='" + descricao + '\'' +
-                ", imagem=" + imagem +
                 '}';
     }
 }

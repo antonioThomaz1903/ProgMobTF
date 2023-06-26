@@ -1,14 +1,11 @@
 package com.example.trabalhofinal.ui.home;
 
-import static android.os.Build.VERSION_CODES.R;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,9 +16,11 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.trabalhofinal.R;
 import com.example.trabalhofinal.classes.database.LocalDatabase;
-import com.example.trabalhofinal.classes.entities.Tag;
+import com.example.trabalhofinal.classes.entities.Post;
 import com.example.trabalhofinal.databinding.FragmentHomeBinding;
-import java.awt.font.NumericShaper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeFragment extends Fragment {
@@ -29,9 +28,8 @@ public class HomeFragment extends Fragment {
 
     private boolean status = false;
 
-    private EditText searchEditText;
-    private ImageButton profileImageButton;
-    private ImageButton addButton;
+
+    List<Post> postes;
 
     private LocalDatabase db;
 
@@ -46,52 +44,43 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
 
         db = LocalDatabase.getDatabase(getContext());
-        searchEditText = binding.searchEditText;
-        searchEditText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String tag = searchEditText.getText().toString();
-                Tag postTag = new Tag();
-                // Lógica para pesquisar um post pela tag
-                searchPostByTag(postTag);
-            }
-        });
 
-        profileImageButton = binding.profileImageView;
+        atualizarPost();
 
-        ImageButton profileImageButton = binding.profileImageView;
-        profileImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "Configurações do usuário", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        addButton = binding.addButton;
-                Toast.makeText(getActivity().getApplicationContext(), "Configurações do usuário", Toast.LENGTH_SHORT).show();
-
-        ImageButton addButton = binding.addButton;
-        addButton.setOnClickListener(new View.OnClickListener() {
+        binding.addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Lógica para adicionar um novo item
             Toast.makeText(getActivity(), "Adicionar", Toast.LENGTH_SHORT).show();
+            criarPost();
+            }
+        });
+
+        binding.profileImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                postes = db.postModel().pesquisaPost(binding.searchEditText.getText().toString());
+                binding.listaPost.setAdapter(new PostAdapter(getContext(), postes));
             }
         });
 
         return binding.getRoot();
     }
 
-    private void searchPostByTag(Tag tag) {
+    private void searchPostByTag() {
         // Lógica para pesquisar um post pela tag recebida como parâmetro
-        Toast.makeText(getActivity(), "Pesquisar post por tag: " + db.tagModel().getTag("CACHORRO").getNome(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(getActivity().getApplicationContext(), "Adicionar", Toast.LENGTH_SHORT).show();
-                criarPost();
+
 
     }
 
     public void criarPost(){
-        NavHostFragment.findNavController(HomeFragment.this).navigate(com.example.trabalhofinal.R.id.action_navigation_home_to_criarPost);
+        NavHostFragment.findNavController(this).navigate(R.id.action_navigation_home_to_addPost);
+    }
+
+    public void atualizarPost(){
+        postes = db.postModel().getAll();
+
+        binding.listaPost.setAdapter(new PostAdapter(getContext(), postes));
     }
 
 }
