@@ -19,7 +19,7 @@ import com.example.trabalhofinal.classes.entities.Post;
 import com.example.trabalhofinal.classes.entities.Tag;
 import com.example.trabalhofinal.classes.entities.Usuario;
 
-@Database(entities = {Usuario.class, Post.class, Notificacao.class,Tag.class, Mensagem.class, Chat.class}, version = 3)
+@Database(entities = {Usuario.class, Post.class, Notificacao.class,Tag.class, Mensagem.class, Chat.class}, version = 4)
 public abstract class LocalDatabase extends RoomDatabase{
 
     private static LocalDatabase INSTANCE;

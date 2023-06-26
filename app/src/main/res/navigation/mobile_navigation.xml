@@ -16,10 +16,25 @@
     </fragment>
 
     <fragment
+        android:id="@+id/navigation_chats"
+        android:name="com.example.trabalhofinal.ui.chat.ChatFragment"
+        android:label="Chat"
+        tools:layout="@layout/fragment_chat" >
+        <action
+            android:id="@+id/action_navigation_chats_to_dash"
+            app:destination="@id/navigation_dashboard" />
+    </fragment>
+
+    <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.trabalhofinal.ui.chat.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+
+        <action
+            android:id="@+id/action_navigation_dash_to_chats"
+            app:destination="@id/navigation_chats" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
